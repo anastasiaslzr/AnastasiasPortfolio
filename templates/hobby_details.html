@@ -1,0 +1,9 @@
+{% extends "base.html" %} {% block content %}
+    <h1>{{ hobby.title }}</h1>
+    <div class="text-image-row">
+        <p>{{ hobby.description }}</p>
+        {% if hobby.image %}
+           <img src="{{ hobby.image.url }}" alt="{{ hobby.title }}" width="400">
+        {% endif %}
+    </div>
+{% endblock %}

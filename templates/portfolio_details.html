@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+    <h1>{{ portfolio.title }}</h1>
+    <div class="text-image-row">
+        <p>
+            {{ portfolio.description }}
+            <a href="{{ portfolio.link }}">Click Here</a>
+        </p>
+        {% if portfolio.image %}
+            <img src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}" width="400">
+        {% endif %}
+    </div>
+
+    {% if user.is_authenticated %}
+    <div class="mt-3">
+        <a href="{% url 'portfolio_edit' portfolio.pk %}">
+            <button class="btn btn-warning">Edit Portfolio Item</button>
+        </a>
+        <a href="{% url 'portfolio_delete' portfolio.pk %}">
+            <button class="btn btn-danger">Delete Portfolio Item</button>
+        </a>
+    </div>
+    {% endif %}
+
+{% endblock %}

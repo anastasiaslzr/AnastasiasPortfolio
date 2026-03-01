@@ -1,0 +1,168 @@
+body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+h1,h2 {
+    text-align: center;
+    color: #ff69b4;
+    margin: 20px 0;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color:  #CF5491 !important;
+  color: white !important;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+}
+.navbar-brand {
+    color: white !important;
+    padding: 50px 0 !important;
+}
+
+button {
+  background-color: hotpink; /* Green */
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #CF5491;
+}
+
+.centered-container {
+  width: 80%;              /* or use a fixed width like 600px */
+  max-width: 800px;        /* optional: prevents it from getting too wide */
+  margin: 0 auto;          /* centers the container horizontally */
+  padding: 20px;           /* adds space inside the container */
+  background-color: #f9f9f9; /* optional: gives it a nice background */
+  border-radius: 8px;      /* optional: rounded corners */
+}
+
+body {
+  margin: 0;
+  background-color: #f0f0f0; /* optional: gives a soft background */
+  font-family: Arial, sans-serif;
+}
+
+.page-wrapper {
+  width: 90%;              /* or use max-width for fixed layout */
+  max-width: 1000px;
+  margin: 0 auto;           /* centers the entire layout */
+  background-color: #fff;   /* optional: white background for content */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* optional: subtle shadow */
+  padding: 0 0 10px 0;
+  border-radius: 8px;
+}
+
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  gap: 20px;
+  justify-content: center;
+}
+
+.portfolio-list li {
+  flex: 1 1 calc(50% - 20px); /* Two columns */
+  background-color: #ffe6f0;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.hobby-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  gap: 20px;
+  justify-content: center;
+}
+
+.hobby-list li {
+  flex: 1 1 calc(50% - 20px); /* Two columns */
+  background-color: #ffe6f0;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-left: 4px solid #ff69b4;
+  border-radius: 4px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: block;
+  margin: 20px auto;
+}
+
+.text-image-row {
+  display: flex;
+  align-items: center;       /* vertically align image and text */
+  gap: 20px;                 /* space between image and paragraph */
+}
+
+.text-image-row img {
+  width: 250px;              /* or use max-width for responsiveness */
+  border-radius: 8px;
+}
+
+.text-image-row p {
+  flex: 1;                   /* paragraph takes remaining space */
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-left: 4px solid #ff69b4;
+  border-radius: 4px;
+}
+
+
+h3 {
+    color: #CF5491;
+    font-family: "Lucida Calligraphy", cursive;
+}
+
+.email-display {
+  font-size: 16px;
+  color: #333;
+  background-color: #f0f8ff;
+  padding: 10px 15px;
+  border-left: 4px solid #ff69b4;
+  border-radius: 6px;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.email-display a {
+  color: #ff69b4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.email-display a:hover {
+  text-decoration: underline;
+  color: #d63384;
+}

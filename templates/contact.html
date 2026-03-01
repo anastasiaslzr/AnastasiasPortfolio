@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% load form_tags %}
+
+    <h1>Contact Me</h1>
+    <div>
+        <h3><b>Email</b></h3>
+        <div class="email-display">
+            <a href="mailto:anastasiasalazar@mail.weber.edu">anastasiasalazar@mail.weber.edu</a>
+        </div>
+    </div>
+
+    <h2 class="mb-4 text-center">Get in Touch</h2>
+
+    {% if form.errors %}
+      <div class="alert alert-danger">
+        <strong>Please correct the errors below.</strong>
+      </div>
+    {% endif %}
+
+    <form method="post" class="card p-4 shadow-sm">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="id_name" class="form-label">Name</label>
+        {{ form.name|add_attr:"class:form-control"|add_attr:"placeholder:Enter your full name" }}
+      </div>
+
+      <div class="mb-3">
+        <label for="id_email" class="form-label">Email</label>
+        {{ form.email|add_attr:"class:form-control"|add_attr:"placeholder:you@example.com" }}
+      </div>
+
+      <div class="mb-3">
+        <label for="id_message" class="form-label">Message</label>
+        {{ form.message|add_attr:"class:form-control"|add_attr:"rows:5"|add_attr:"placeholder:Write your message..." }}
+      </div>
+
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+{% endblock %}

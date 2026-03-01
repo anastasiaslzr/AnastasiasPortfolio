@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %}
+<h1>Hobbies</h1>
+<ul class="hobby-list">
+    {% for hobby in hobbies %}
+    <li>
+        <b>{{ hobby.title }}</b>
+        <div>
+            <a href="{% url 'hobby_details' hobby.pk %}">
+                <button id="{{ hobby.title }}">Detailed View</button>
+            </a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
