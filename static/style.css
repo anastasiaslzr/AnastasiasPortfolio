@@ -1,31 +1,126 @@
+:root {
+    --primary-pink: #d63384;   /* Bootstrap pink */
+    --soft-pink: #fff0f6;      /* Very light background pink */
+    --hover-pink: #a61e4d;     /* Darker pink for hovers */
+    --text-dark: #212529;
+    --text-muted: #6c757d;
+}
+
 body {
-    font-family: "Segoe UI", system-ui, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: black;
+    font-family: 'Poppins', sans-serif; /* Cleaner font */
+    background-color: #f8f9fa; /* Light gray/white instead of #f0f0f0 */
+    color: var(--text-dark);
+    line-height: 1.6;
 }
 
-h1,h2 {
+h1, h2, h3 {
+    font-weight: 600;
+    color: var(--primary-pink);
     text-align: center;
-    color: #ff69b4;
-    margin: 20px 0;
+    margin-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif; /* Remove Lucida Calligraphy */
 }
 
-.navbar-nav .nav-link:hover {
-  background-color:  #CF5491 !important;
-  color: white !important;
+.nav-item .btn-nav {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 8px 20px !important;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
-.navbar-nav .nav-link {
-  color: white !important;
+.nav-item .btn-nav:hover {
+    background-color: white;
+    color: var(--primary-pink) !important;
+    transform: translateY(-2px);
 }
-.navbar-brand {
+
+.navbar-custom {
+    background: linear-gradient(135deg, #d63384 0%, #CF5491 100%);
+    box-shadow: 0 4px 10px rgba(214, 51, 132, 0.3);
+    padding: 15px 0;
+}
+
+/* Styling for the Logo/Brand name */
+.navbar-custom .navbar-brand {
     color: white !important;
-    padding: 50px 0 !important;
+    font-weight: 700;
+    padding: 15px 0; /* Adjusted to be cleaner */
+}
+
+/* Styling for the Links (Home, Hobbies, etc.) */
+.navbar-custom .nav-link {
+    color: white !important;
+    font-weight: 500;
+    padding: 8px 15px !important; /* Standard padding */
+}
+
+/* --- GitHub Repository Grid --- */
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.repo-card {
+    background: white;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.repo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(207, 84, 145, 0.15); /* Soft pink shadow */
+    border-color: #CF5491;
+}
+
+.repo-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    text-align: left; /* Override center alignment */
+}
+
+.repo-card a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+}
+
+.repo-card p {
+    font-size: 0.9rem;
+    color: #586069;
+    background: none; /* Remove the pink background from generic p tag */
+    border: none;
+    padding: 0;
+    margin: 10px 0;
+    flex-grow: 1;
+}
+
+.repo-stats {
+    display: flex;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: #586069;
+    margin-top: 10px;
+}
+
+.language-badge {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #CF5491; /* Default color */
+    margin-right: 5px;
 }
 
 button {
-  background-color: hotpink; /* Green */
+  background-color: hotpink;
   color: white;
   padding: 12px 24px;
   border: none;
@@ -40,26 +135,21 @@ button:hover {
 }
 
 .centered-container {
-  width: 80%;              /* or use a fixed width like 600px */
-  max-width: 800px;        /* optional: prevents it from getting too wide */
-  margin: 0 auto;          /* centers the container horizontally */
-  padding: 20px;           /* adds space inside the container */
-  background-color: #f9f9f9; /* optional: gives it a nice background */
-  border-radius: 8px;      /* optional: rounded corners */
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
 }
 
-body {
-  margin: 0;
-  background-color: #f0f0f0; /* optional: gives a soft background */
-  font-family: Arial, sans-serif;
-}
 
 .page-wrapper {
-  width: 90%;              /* or use max-width for fixed layout */
+  width: 90%;
   max-width: 1000px;
-  margin: 0 auto;           /* centers the entire layout */
-  background-color: #fff;   /* optional: white background for content */
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* optional: subtle shadow */
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   padding: 0 0 10px 0;
   border-radius: 8px;
 }
@@ -73,13 +163,40 @@ body {
   justify-content: center;
 }
 
-.portfolio-list li {
-  flex: 1 1 calc(50% - 20px); /* Two columns */
-  background-color: #ffe6f0;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.portfolio-list, .hobby-list {
+    display: grid; /* Use Grid instead of Flex for better alignment */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.portfolio-list li, .hobby-list li {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border-top: 5px solid var(--primary-pink); /* Pink accent bar */
+}
+
+.portfolio-list li:hover, .hobby-list li:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+}
+
+/* Make the buttons inside cards look better */
+.portfolio-list button, .hobby-list button {
+    width: 100%;
+    margin-top: 15px;
+    background-color: white;
+    color: var(--primary-pink);
+    border: 2px solid var(--primary-pink);
+}
+
+.portfolio-list button:hover, .hobby-list button:hover {
+    background-color: var(--primary-pink);
+    color: white;
 }
 
 .hobby-list {
@@ -92,7 +209,7 @@ body {
 }
 
 .hobby-list li {
-  flex: 1 1 calc(50% - 20px); /* Two columns */
+  flex: 1 1 calc(50% - 20px);
   background-color: #ffe6f0;
   padding: 15px;
   border-radius: 8px;
@@ -120,17 +237,17 @@ img {
 
 .text-image-row {
   display: flex;
-  align-items: center;       /* vertically align image and text */
-  gap: 20px;                 /* space between image and paragraph */
+  align-items: center;
+  gap: 20px;
 }
 
 .text-image-row img {
-  width: 250px;              /* or use max-width for responsiveness */
+  width: 250px;
   border-radius: 8px;
 }
 
 .text-image-row p {
-  flex: 1;                   /* paragraph takes remaining space */
+  flex: 1;
   font-size: 16px;
   line-height: 1.6;
   background-color: #f9f9f9;
@@ -139,11 +256,6 @@ img {
   border-radius: 4px;
 }
 
-
-h3 {
-    color: #CF5491;
-    font-family: "Lucida Calligraphy", cursive;
-}
 
 .email-display {
   font-size: 16px;
@@ -166,3 +278,90 @@ h3 {
   text-decoration: underline;
   color: #d63384;
 }
+
+/* --- Hero Section (Home Page) --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap-reverse; /* Stacks vertically on mobile */
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-content h1 {
+    text-align: left; /* Align text to left for hero */
+    font-size: 2.5rem;
+    color: var(--text-dark);
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--primary-pink);
+    border-left: none; /* Remove the side bar from generic p */
+    padding-left: 0;
+    background: none;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+/* --- Profile Image Styling --- */
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%; /* Makes it a circle */
+    border: 5px solid white;
+    box-shadow: 0 10px 25px rgba(214, 51, 132, 0.2); /* Soft pink glow */
+    background-color: #ddd; /* Fallback color if image missing */
+}
+
+/* Secondary Button (Ghost Style) */
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-pink);
+    color: var(--primary-pink);
+}
+
+.btn-secondary:hover {
+    background-color: var(--soft-pink);
+    color: var(--primary-pink);
+}
+
+/* Wave Animation */
+.wave {
+    display: inline-block;
+    animation: wave-animation 2.5s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+    10% { transform: rotate(14.0deg) }
+    20% { transform: rotate(-8.0deg) }
+    30% { transform: rotate(14.0deg) }
+    40% { transform: rotate(-4.0deg) }
+    50% { transform: rotate(10.0deg) }
+    60% { transform: rotate( 0.0deg) }
+    100% { transform: rotate( 0.0deg) }
+}
+
+

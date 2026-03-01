@@ -20,4 +20,23 @@
     </li>
     {% endfor %}
 </ul>
+<div class="repo-grid">
+    {% for repo in repos %}
+    <div class="repo-card">
+        <h3><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></h3>
+
+        <p>{{ repo.description|default:"No description provided." }}</p>
+
+        <div class="repo-stats">
+            <span>⭐ {{ repo.stargazers_count }}</span>
+            <span>🍴 {{ repo.forks_count }}</span>
+            {% if repo.language %}
+                <span class="language-badge">{{ repo.language }}</span>
+            {% endif %}
+        </div>
+    </div>
+    {% empty %}
+        <p>No repositories found (or API limited reached).</p>
+{% endfor %}
+</div>
 {% endblock %}

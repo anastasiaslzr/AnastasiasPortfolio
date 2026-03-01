@@ -1,0 +1,1 @@
+web: gunicorn CodingChallenge6.wsgi --bind 0.0.0.0:$PORT

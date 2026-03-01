@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Hi, I'm Anastasia! <span class="wave">👋</span></h1>
+        <p class="lead-text">
+            I am a Computer Science student at Weber State University and a Project Management Intern at Jade Global.
+        </p>
+        <p>
+            My goal is to buy a house, cultivate a beautiful garden, and master the art of cooking.
+            Explore my work below or get in touch!
+        </p>
+        <div class="hero-buttons">
+            <a href="{% url 'portfolio' %}"><button class="btn-primary">View My Work</button></a>
+
+            <a href="{% static 'resume.pdf' %}" download target="_blank">
+                <button class="btn-secondary">Download Resume</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-image-container">
+        <img src="{% static 'profile.jpg' %}" alt="Anastasia" class="profile-img">
+    </div>
+</div>
+{% endblock %}

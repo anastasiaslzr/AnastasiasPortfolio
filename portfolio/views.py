@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-
+import requests
+from django.core.cache import cache
 from portfolio.models import Hobby, PortfolioItem
 from .forms import ContactForm, PortfolioForm
 from django.contrib.auth.decorators import login_required
@@ -8,16 +9,43 @@ from django.contrib.auth import logout
 
 # Create your views here.
 
+def index(request):
+    return render(request, 'index.html')
+
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'index.html')
 
 def hobbies(request):
     hobby = Hobby.objects.all()
     return render(request, 'hobbies.html', {'hobbies': hobby})
 
+
 def portfolio(request):
+    # 1. Fetch Database Items (Existing code)
     portfolios = PortfolioItem.objects.all()
-    return render(request, 'portfolio.html', {'portfolios': portfolios})
+
+    # 2. Fetch GitHub Repos (Merged code)
+    username = "anastasiaslzr"
+
+    # Optional: Check cache first to avoid rate limits
+    repos = cache.get('github_repos')
+
+    if not repos:
+        url = f"https://api.github.com/users/{username}/repos"
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            repos = response.json()
+            cache.set('github_repos', repos, 3600)
+        else:
+            repos = []
+
+    # 3. Pass BOTH to the template
+    context = {
+        'portfolios': portfolios,
+        'repos': repos
+    }
+    return render(request, 'portfolio.html', context)
 
 def contact(request):
     return render(request, 'contact.html')

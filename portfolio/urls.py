@@ -6,8 +6,9 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    path("", views.home, name="home"),
-    path("home/", views.home, name="home"),
+    path("", views.index, name="index"),
+    path("index/", views.index, name="index"),
+    path("home/", views.index, name="index"),  # Keep for backward compatibility
     path("hobbies/", views.hobbies, name="Hobbies"),
     path("portfolio/", views.portfolio, name="portfolio"),
     path("hobbies/<int:pk>", views.hobby_details, name="hobby_details"),
